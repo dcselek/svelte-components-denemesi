@@ -9,7 +9,11 @@ import Button from "./components/button.svelte";
 	<h1>Hello {name}!</h1>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 	
-	<Button color1 text = "Can"></Button>
+	<Button navButton />
+	<br/>
+	<Button headerButton />
+	<br/>
+	<Button />
 </main>
 
 <style>

@@ -1,17 +1,30 @@
 <script>
 
-    export let color1 = false;
-    export let text;
+    import {Button} from 'sveltestrap';
+    export let navButton = false;
+    export let headerButton = false;
 
 </script>
 
-{#if color1 == true }
-    <button class="pink" on:click={() => text = "Clicked"}>{text}</button>    
+{#if navButton == true }
+    <Button class="navButton" >nav</Button>    
+{:else if headerButton == true}
+    <Button class="headerButton" >header</Button>
+{:else}
+    <Button color="primary">normal</Button>
 {/if}
 
 
+
 <style>
-    .pink{
-        background-color: pink;
+    :global(.navButton){
+        background-color: red !important;
+        border-color: red !important;
+        width: 175px;
+    }
+    :global(.headerButton){
+        background-color: greenyellow !important;
+        border-color: greenyellow !important;
+        width: 125px;
     }
 </style>
