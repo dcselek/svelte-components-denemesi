@@ -11,7 +11,7 @@ import Button from "./components/button.svelte";
 	
 	<Button kind="nav" value="nav" />
 	<br/>
-	<Button kind="header" value="header" />
+	<Button disabled kind="header" value="header" />
 	<br/>
 	<Button value="default" />
 </main>

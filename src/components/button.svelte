@@ -3,18 +3,25 @@
     import {Button} from 'sveltestrap';
     
 
-    export let kind = "default";
+    export let kind = "";
     export let value = "";
+    export let disabled = false;
 
     $: buttonProps ={
         value,
+        disabled,
         class: [
             kind && `button--${kind}`
         ]
     }
 </script>
 
-<Button {...buttonProps} color="primary">{value}</Button>
+{#if kind != ""}
+    <Button {...buttonProps} color="primary">{value}</Button>
+{:else}
+    <Button color="primary">{value}</Button>
+{/if}
+
 
 
 
