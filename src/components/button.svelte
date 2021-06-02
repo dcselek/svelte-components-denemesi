@@ -1,28 +1,30 @@
 <script>
 
     import {Button} from 'sveltestrap';
-    export let navButton = false;
-    export let headerButton = false;
+    
 
+    export let kind = "default";
+    export let value = "";
+
+    $: buttonProps ={
+        value,
+        class: [
+            kind && `button--${kind}`
+        ]
+    }
 </script>
 
-{#if navButton == true }
-    <Button class="navButton" >nav</Button>    
-{:else if headerButton == true}
-    <Button class="headerButton" >header</Button>
-{:else}
-    <Button color="primary">normal</Button>
-{/if}
+<Button {...buttonProps} color="primary">{value}</Button>
 
 
 
 <style>
-    :global(.navButton){
+    :global(.button--nav){
         background-color: red !important;
         border-color: red !important;
         width: 175px;
     }
-    :global(.headerButton){
+    :global(.button--header){
         background-color: greenyellow !important;
         border-color: greenyellow !important;
         width: 125px;
