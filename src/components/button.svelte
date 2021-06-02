@@ -6,10 +6,12 @@
     export let kind = "";
     export let value = "";
     export let disabled = false;
+    export let loading = false;
 
     $: buttonProps ={
         value,
         disabled,
+        loading,
         class: [
             kind && `button--${kind}`
         ]
