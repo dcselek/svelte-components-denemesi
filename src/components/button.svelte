@@ -3,10 +3,19 @@
     import {Button} from 'sveltestrap';
     
 
-    export let kind = "";
+    export let kind = "default";
     export let value = "";
     export let disabled = false;
     export let loading = false;
+    let spin = false;
+    
+
+    function handleClick(){
+        spin = true;
+        return (setTimeout(() => {
+            spin = false;
+        },2000))
+    }
 
     $: buttonProps ={
         value,
@@ -18,10 +27,14 @@
     }
 </script>
 
-{#if kind != ""}
-    <Button {...buttonProps} color="primary">{value}</Button>
-{:else}
+{#if kind == "default"}
     <Button color="primary">{value}</Button>
+{:else if loading}
+    <Button {...buttonProps} color="primary" on:click={handleClick} >
+        {spin ? "wait" : `${value}`}
+    </Button>
+{:else}
+    <Button {...buttonProps} color="primary">{value}</Button>
 {/if}
 
 
